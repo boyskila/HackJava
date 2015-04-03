@@ -1,8 +1,6 @@
 package com.hack.boyko.student;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 public class Students {
@@ -11,11 +9,11 @@ public class Students {
     private String secondName;
     private List<Integer> studentGrades;
 
-    public Students(String name, String secondName, int... grades) {
+    public Students(String name, String secondName, double... grades) {
 
-        studentGrades = new ArrayList<Integer>();
+        studentGrades = new ArrayList<>();
         for (int i = 0; i < grades.length; i++) {
-            studentGrades.add(grades[i]);
+            studentGrades.add((int)grades[i]);
         }
 
         this.name = name;
@@ -46,7 +44,7 @@ public class Students {
         this.secondName = secondName;
     }
 
-    public double averageOfGrades() {
+    public double averageGrade() {
         double sum = 0;
         int i;
         for (i = 0; i < studentGrades.size(); i++) {
@@ -65,7 +63,7 @@ public class Students {
         }
 
         return "Name --> " + name + " " + secondName + sb.toString()
-                + String.format("average --> %.2f", averageOfGrades());
+                + String.format("average --> %.2f", averageGrade());
     }
 
 }

@@ -1,32 +1,25 @@
 package com.hack.boyko.student;
 
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
-public class ValueComparator {
+public class ValueComparator implements Comparator<Students> {
+    
+    Map<Students, Double> gradesPerStudent;
+    
+    public ValueComparator(Map<Students, Double> gradesPerStudent) {
+        this.gradesPerStudent = gradesPerStudent;
+    }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-    public Map<Students, Double> sortByValue(Map unsortMap) {
-        List list = new LinkedList(unsortMap.entrySet());
-
-        Collections.sort(list, new Comparator() {
-            public int compare(Object o1, Object o2) {
-                return ((Comparable) ((Map.Entry) (o2)).getValue()).compareTo(((Map.Entry) (o1)).getValue());
-            }
-        });
-
-        Map sortedMap = new LinkedHashMap();
-        for (Iterator<?> it = list.iterator(); it.hasNext();) {
-
-            Map.Entry entry = (Map.Entry) it.next();
-            sortedMap.put(entry.getKey(), entry.getValue());
+    @Override
+    public int compare(Students s1, Students s2) {
+        Double grade1 = gradesPerStudent.get(s1);
+        Double grade2 = gradesPerStudent.get(s2);
+        if (grade1.equals(grade2)) {
+            return s1.getName().compareTo(s2.getName());
+        } else {
+            return grade2.compareTo(grade1);
         }
-        return sortedMap;
     }
 
 }
