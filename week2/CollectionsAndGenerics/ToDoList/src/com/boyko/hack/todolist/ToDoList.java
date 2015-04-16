@@ -28,11 +28,9 @@ public class ToDoList implements Iterable<Task> {
 
     public int getTimeNeeded() {
 
-        for (int i = 0; i < Task.getAllTasksTime().size(); i++)
-            // updated after every marked task
-            remainingTime += Task.getAllTasksTime().get(i);
-
+        tasks.stream().forEach(e -> remainingTime += e.getRemTime());
         return remainingTime;
+
     }
 
     public Task getTop() {
@@ -41,13 +39,6 @@ public class ToDoList implements Iterable<Task> {
 
     public void markFinishedTask(Task t) {
 
-        for (int i = 0; i < Task.getAllTasksTime().size(); i++) {
-            if (t.getRemTime() == Task.getAllTasksTime().get(i)) {
-                Task.getAllTasksTime().remove(i); // remove task time from
-                                                  // the timeList
-                break;
-            }
-        }
         tasks.remove(t);
     }
 

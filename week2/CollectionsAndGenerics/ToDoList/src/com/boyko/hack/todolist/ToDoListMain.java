@@ -10,7 +10,7 @@ public class ToDoListMain {
         Task algebra = new Task(2, 4, "Algebra Task");
         Task sleeping = new Task(8, 8, "Sleeping Task");
         Task programming = new Task(10, 10, "Programming Task");
-        Task drinkingBeer = new Task(2, 5, "Drinking Beer Task");
+        Task drinkingBeer = new Task(3, 5, "Drinking Beer Task");
 
         todo.addTask(algebra);
         todo.addTask(sleeping);
@@ -18,10 +18,10 @@ public class ToDoListMain {
         todo.addTask(programming);
         todo.addTask(drinkingBeer);
         todo.markFinishedTask(running);
-        todo.markFinishedTask(algebra);
-      //  todo.markFinishedTask(sleeping);
-        todo.markFinishedTask(programming);
-        // todo.markFinishedTask(drinkingBeer);
+         todo.markFinishedTask(algebra);
+        // todo.markFinishedTask(sleeping);
+        // todo.markFinishedTask(programming);
+        todo.markFinishedTask(drinkingBeer);
 
         System.out.printf("%.1f hours left for %s\n", programming.getRemTime(), programming.getDescription());
         System.out.println("\n============\nTask list\n-------------------");
