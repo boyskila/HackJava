@@ -16,13 +16,11 @@ public final class UnmodifiableList<T extends Serializable> extends ArrayList<T>
 
     List<byte[]> serializedCollection = new ArrayList<>();
 
-    public UnmodifiableList(Collection<? extends T> collection) { // Constructor
+    public UnmodifiableList(Collection<? extends T> collection) {
 
-        for (T t : collection) {
+        for (T t : collection)
 
             serializedCollection.add(SerializationUtils.serialize(t));
-
-        }
 
     }
 
@@ -66,67 +64,66 @@ public final class UnmodifiableList<T extends Serializable> extends ArrayList<T>
 
             return SerializationUtils.deserialize(iterator.next());
         }
-
     }
 
     public boolean add(T element) {
         throw new UnsupportedOperationException(
-                "This is immutable collection and its impossible to add,remove,get and etc. from it");
+                "This is immutable collection and its impossible to add,remove and etc. from it");
     }
 
     public void add(int index, T element) {
         throw new UnsupportedOperationException(
-                "This is immutable collection and its impossible to add,remove,get and etc. from it");
+                "This is immutable collection and its impossible to add,remove and etc. from it");
     }
 
     public boolean remove() {
         throw new UnsupportedOperationException(
-                "This is immutable collection and its impossible to add,remove,get and etc. from it");
+                "This is immutable collection and its impossible to add,remove and etc. from it");
     }
 
     public T remove(int index) {
         throw new UnsupportedOperationException(
-                "This is immutable collection and its impossible to add,remove,get and etc. from it");
+                "This is immutable collection and its impossible to add,remove and etc. from it");
     }
 
     public boolean remove(Object element) {
         throw new UnsupportedOperationException(
-                "This is immutable collection and its impossible to add,remove,get and etc. from it");
+                "This is immutable collection and its impossible to add,remove and etc. from it");
     }
 
     @Override
     public boolean addAll(Collection<? extends T> c) {
         throw new UnsupportedOperationException(
-                "This is immutable collection and its impossible to add,remove,get and etc. from it");
+                "This is immutable collection and its impossible to add,remove and etc. from it");
     }
 
     @Override
     public boolean addAll(int index, Collection<? extends T> c) {
         throw new UnsupportedOperationException(
-                "This is immutable collection and its impossible to add,remove,get and etc. from it");
+                "This is immutable collection and its impossible to add,remove and etc. from it");
     }
 
     @Override
     public void clear() {
         throw new UnsupportedOperationException(
-                "This is immutable collection and its impossible to add,remove,get and etc. from it");
+                "This is immutable collection and its impossible to add,remove and etc. from it");
     }
 
     @Override
     public boolean removeAll(Collection<?> c) {
         throw new UnsupportedOperationException(
-                "This is immutable collection and its impossible to add,remove,get and etc. from it");
+                "This is immutable collection and its impossible to add,remove and etc. from it");
     }
 
     @Override
     protected void removeRange(int fromIndex, int toIndex) {
         throw new UnsupportedOperationException(
-                "This is immutable collection and its impossible to add,remove,get and etc. from it");
+                "This is immutable collection and its impossible to add,remove and etc. from it");
     }
 
     @Override
     public void replaceAll(UnaryOperator<T> operator) {
         throw new UnsupportedOperationException(
-                "This is immutable collection and its impossible to add,remove,get and etc. from it");
+                "This is immutable collection and its impossible to add,remove and etc. from it");
     }
 }
